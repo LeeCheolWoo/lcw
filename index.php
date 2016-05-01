@@ -1,5 +1,4 @@
 <!DOCTYPE html> 
-<html> 
     <head> 
     <meta charset="utf-8" content="text/html"><!-- 한글 표현을 위한 선언 --!>
     <title>IT Cafe</title> 
@@ -14,9 +13,11 @@
     
     <script>
         function calculate_total_price(gbn){
+
             amount = $('#'+ gbn +' #many').val();
             price = $('#'+ gbn +' #price').val();
             big = $('#'+ gbn +' #size').val();
+            
             if(big=="Short")
                 big = -500;
             else if(big=="Tall")
@@ -29,8 +30,8 @@
             $('#'+ gbn +' #total').text(total_price);
             $('#'+ gbn +' #total_price').val(total_price);
         }                   
-    </script> 
-
+    </script>
+    </script>
     <style>
    		#pic{
    			margin-top: 20px;
@@ -45,8 +46,7 @@
             margin-left:250px;
             margin-top:12px;
         }
-   		#drink{
-            text-align: center;
+   		#drink{text-align: center;
    		}
         #head{
             font-size:1.5em;
@@ -58,7 +58,8 @@
             margin-top: -20px;
         }
         #box{
-           text-align: center;
+           width: 30em;
+           padding-left: 80px;
         }
     </style>
 </head> 
@@ -174,7 +175,7 @@
 
             <div class="ui-grid-b" id="box">   
                 <div class="ui-block-a">
-                	<input type="submit" value=" 주문 하기 " onclick="othersubmit('americano1')">
+                	<input type="submit" value=" 결제하기 " onclick="othersubmit('americano1')">
                 </div>
             </div>
             </form>
@@ -216,12 +217,348 @@
 
             <div class="ui-grid-b">   
                 <div class="ui-block-a">
-                    <input type="submit" value="주문하기" >
+                    <input type="submit" value="결제하기" >
                 </div>
             </div>
             </form>
         </div>   
     </section>
+
+    <section id="cafemocha" data-role="page" data-theme="a">    <!--카페모카-->
+        <div  data-role="header">                              <!--헤더-->
+                <h1 id="head">IT Cafe</h1>
+                <a href="#main" data-role="button" data-inline="true" data-icon="home" data-iconpos="notext" id="homeicon"></a>
+                <a href="#shop" data-role="button" data-inline="true" data-icon="shop" data-iconpos="notext" id="shopicon"></a>
+        </div><!-- header -->
+
+        <div data-role="main" class="ui-content">
+            <form  action="order.php" method="POST" name="cafemocha1" >
+            <div class="ui-grid-a">
+                <div class="ui-block-a">
+                    <img id="pic"src="img/cafemocha.jpg" width="120" height="120">
+                </div>
+           
+                <div class="ui-block-b"><!--상세보기 이미지 오른쪽 칸-->
+                    <input type="hidden" name="total_price" id="total_price" value="5000"/>
+                    <input type="hidden" name="product" id="cafemocha" value="카페모카"/>
+                    <h1>카페모카</h1>
+                    <input type="hidden" name="price" id="price" value="5000"/>
+                    <h3>가격 <span name="total" id="total" class="cart2">5000</span>원</h3>
+                    수량
+                <div data-role="ui-field-contain">
+                    <input type="text"  name="many" id="many" data-role="spinbox" data-mini="true" value="1" min="0" max="10"  runat="server"  onchange="calculate_total_price('cafemocha')" >       
+                </div>
+                </div>
+            </div>
+                    <select name ="size" id ="size" onchange="calculate_total_price('cafemocha')">
+                        <option value="Tall">Tall</option>
+                        <option value="Short">Short</option>
+                        <option value="Grande">Grande</option>
+                        <option value="Venti">Venti</option>
+                    </select><br> 
+
+            <div class="ui-grid-b">   
+                <div class="ui-block-a">
+                    <input type="submit" value="결제하기" >
+                </div>
+            </div>
+            </form>
+        </div>   
+    </section>
+
+    <section id="cappuccino" data-role="page" data-theme="a">    <!--카푸치노-->
+        <div  data-role="header">                              <!--헤더-->
+                <h1 id="head">IT Cafe</h1>
+                <a href="#main" data-role="button" data-inline="true" data-icon="home" data-iconpos="notext" id="homeicon"></a>
+                <a href="#shop" data-role="button" data-inline="true" data-icon="shop" data-iconpos="notext" id="shopicon"></a>
+        </div><!-- header -->
+
+        <div data-role="main" class="ui-content">
+            <form  action="order.php" method="POST" name="cappuccino1" >
+            <div class="ui-grid-a">
+                <div class="ui-block-a">
+                    <img id="pic"src="img/cappuccino.png" width="120" height="120">
+                </div>
+           
+                <div class="ui-block-b"><!--상세보기 이미지 오른쪽 칸-->
+                    <input type="hidden" name="total_price" id="total_price" value="5000"/>
+                    <input type="hidden" name="product" id="cappuccino" value="카푸치노"/>
+                    <h1>카푸치노</h1>
+                    <input type="hidden" name="price" id="price" value="5000"/>
+                    <h3>가격 <span name="total" id="total" class="cart2">5000</span>원</h3>
+                    수량
+                <div data-role="ui-field-contain">
+                    <input type="text"  name="many" id="many" data-role="spinbox" data-mini="true" value="1" min="0" max="10"  runat="server"  onchange="calculate_total_price('cappuccino')" >       
+                </div>
+                </div>
+            </div>
+                    <select name ="size" id ="size" onchange="calculate_total_price('cappuccino')">
+                        <option value="Tall">Tall</option>
+                        <option value="Short">Short</option>
+                        <option value="Grande">Grande</option>
+                        <option value="Venti">Venti</option>
+                    </select><br> 
+
+            <div class="ui-grid-b">   
+                <div class="ui-block-a">
+                    <input type="submit" value="결제하기" >
+                </div>
+            </div>
+            </form>
+        </div>   
+    </section>
+
+    <section id="iceamericano" data-role="page" data-theme="a">    <!--아이스 아메리카노-->
+        <div  data-role="header">                              <!--헤더-->
+                <h1 id="head">IT Cafe</h1>
+                <a href="#main" data-role="button" data-inline="true" data-icon="home" data-iconpos="notext" id="homeicon"></a>
+                <a href="#shop" data-role="button" data-inline="true" data-icon="shop" data-iconpos="notext" id="shopicon"></a>
+        </div><!-- header -->
+
+        <div data-role="main" class="ui-content">
+            <form  action="order.php" method="POST" name="iceamericano1" >
+            <div class="ui-grid-a">
+                <div class="ui-block-a">
+                    <img id="pic"src="img/iceamericano.jpg" width="120" height="120">
+                </div>
+           
+                <div class="ui-block-b"><!--상세보기 이미지 오른쪽 칸-->
+                    <input type="hidden" name="total_price" id="total_price" value="5500"/>
+                    <input type="hidden" name="product" id="iceamericano" value="아이스 아메리카노"/>
+                    <h1>아이스아메리카노</h1>
+                    <input type="hidden" name="price" id="price" value="5500"/>
+                    <h3>가격 <span name="total" id="total" class="cart2">5500</span>원</h3>
+                    수량
+                <div data-role="ui-field-contain">
+                    <input type="text"  name="many" id="many" data-role="spinbox" data-mini="true" value="1" min="0" max="10"  runat="server"  onchange="calculate_total_price('iceamericano')" >       
+                </div>
+                </div>
+            </div>
+                    <select name ="size" id ="size" onchange="calculate_total_price('iceamericano')">
+                        <option value="Tall">Tall</option>
+                        <option value="Short">Short</option>
+                        <option value="Grande">Grande</option>
+                        <option value="Venti">Venti</option>
+                    </select><br> 
+
+            <div class="ui-grid-b">   
+                <div class="ui-block-a">
+                    <input type="submit" value="결제하기" >
+                </div>
+            </div>
+            </form>
+        </div>   
+    </section>
+
+    <section id="iceespresso" data-role="page" data-theme="a">    <!--아이스에스프레소-->
+        <div  data-role="header">                              <!--헤더-->
+                <h1 id="head">IT Cafe</h1>
+                <a href="#main" data-role="button" data-inline="true" data-icon="home" data-iconpos="notext" id="homeicon"></a>
+                <a href="#shop" data-role="button" data-inline="true" data-icon="shop" data-iconpos="notext" id="shopicon"></a>
+        </div><!-- header -->
+
+        <div data-role="main" class="ui-content">
+            <form  action="order.php" method="POST" name="iceespresso1" >
+            <div class="ui-grid-a">
+                <div class="ui-block-a">
+                    <img id="pic"src="img/iceespresso.jpg" width="120" height="120">
+                </div>
+           
+                <div class="ui-block-b"><!--상세보기 이미지 오른쪽 칸-->
+                    <input type="hidden" name="total_price" id="total_price" value="5000"/>
+                    <input type="hidden" name="product" id="cafemocha" value="아이스 에스프레소"/>
+                    <h1>아이스 에스프레소</h1>
+                    <input type="hidden" name="price" id="price" value="5000"/>
+                    <h3>가격 <span name="total" id="total" class="cart2">5000</span>원</h3>
+                    수량
+                <div data-role="ui-field-contain">
+                    <input type="text"  name="many" id="many" data-role="spinbox" data-mini="true" value="1" min="0" max="10"  runat="server"  onchange="calculate_total_price('iceespresso')" >       
+                </div>
+                </div>
+            </div>
+                    <select name ="size" id ="size" onchange="calculate_total_price('iceespresso')">
+                        <option value="Tall">Tall</option>
+                        <option value="Short">Short</option>
+                        <option value="Grande">Grande</option>
+                        <option value="Venti">Venti</option>
+                    </select><br> 
+
+            <div class="ui-grid-b">   
+                <div class="ui-block-a">
+                    <input type="submit" value="결제하기" >
+                </div>
+            </div>
+            </form>
+        </div>   
+    </section>
+
+    <section id="icecafemocha" data-role="page" data-theme="a">    <!--아이스 카페모카-->
+        <div  data-role="header">                              <!--헤더-->
+                <h1 id="head">IT Cafe</h1>
+                <a href="#main" data-role="button" data-inline="true" data-icon="home" data-iconpos="notext" id="homeicon"></a>
+                <a href="#shop" data-role="button" data-inline="true" data-icon="shop" data-iconpos="notext" id="shopicon"></a>
+        </div><!-- header -->
+
+        <div data-role="main" class="ui-content">
+            <form  action="order.php" method="POST" name="icecafemocha" >
+            <div class="ui-grid-a">
+                <div class="ui-block-a">
+                    <img id="pic"src="img/cafemocha.jpg" width="120" height="120">
+                </div>
+           
+                <div class="ui-block-b"><!--상세보기 이미지 오른쪽 칸-->
+                    <input type="hidden" name="total_price" id="total_price" value="5000"/>
+                    <input type="hidden" name="product" id="icecafemocha" value="아이스 카페모카"/>
+                    <h1>아이스 카페모카</h1>
+                    <input type="hidden" name="price" id="price" value="5000"/>
+                    <h3>가격 <span name="total" id="total" class="cart2">5000</span>원</h3>
+                    수량
+                <div data-role="ui-field-contain">
+                    <input type="text"  name="many" id="many" data-role="spinbox" data-mini="true" value="1" min="0" max="10"  runat="server"  onchange="calculate_total_price('icecafemocha')" >       
+                </div>
+                </div>
+            </div>
+                    <select name ="size" id ="size" onchange="calculate_total_price('icecafemocha')">
+                        <option value="Tall">Tall</option>
+                        <option value="Short">Short</option>
+                        <option value="Grande">Grande</option>
+                        <option value="Venti">Venti</option>
+                    </select><br> 
+
+            <div class="ui-grid-b">   
+                <div class="ui-block-a">
+                    <input type="submit" value="결제하기" >
+                </div>
+            </div>
+            </form>
+        </div>   
+    </section>
+
+    <section id="icecappuccino" data-role="page" data-theme="a">    <!--아이스 카푸치노-->
+        <div  data-role="header">                              <!--헤더-->
+                <h1 id="head">IT Cafe</h1>
+                <a href="#main" data-role="button" data-inline="true" data-icon="home" data-iconpos="notext" id="homeicon"></a>
+                <a href="#shop" data-role="button" data-inline="true" data-icon="shop" data-iconpos="notext" id="shopicon"></a>
+        </div><!-- header -->
+
+        <div data-role="main" class="ui-content">
+            <form  action="order.php" method="POST" name="icecappuccino1" >
+            <div class="ui-grid-a">
+                <div class="ui-block-a">
+                    <img id="pic"src="img/icecappuccino.jpg" width="120" height="120">
+                </div>
+           
+                <div class="ui-block-b"><!--상세보기 이미지 오른쪽 칸-->
+                    <input type="hidden" name="total_price" id="total_price" value="4000"/>
+                    <input type="hidden" name="product" id="icecappuccino" value="아이스 카푸치노"/>
+                    <h1>아이스 카푸치노</h1>
+                    <input type="hidden" name="price" id="price" value="4000"/>
+                    <h3>가격 <span name="total" id="total" class="cart2">4000</span>원</h3>
+                    수량
+                <div data-role="ui-field-contain">
+                    <input type="text"  name="many" id="many" data-role="spinbox" data-mini="true" value="1" min="0" max="10"  runat="server"  onchange="calculate_total_price('icecappuccino')" >       
+                </div>
+                </div>
+            </div>
+                    <select name ="size" id ="size" onchange="calculate_total_price('icecappuccino')">
+                        <option value="Tall">Tall</option>
+                        <option value="Short">Short</option>
+                        <option value="Grande">Grande</option>
+                        <option value="Venti">Venti</option>
+                    </select><br> 
+
+            <div class="ui-grid-b">   
+                <div class="ui-block-a">
+                    <input type="submit" value="결제하기" >
+                </div>
+            </div>
+            </form>
+        </div>   
+    </section>
+
+    <section id="hotchoco" data-role="page" data-theme="a">    <!--핫 초코-->
+        <div  data-role="header">                              <!--헤더-->
+                <h1 id="head">IT Cafe</h1>
+                <a href="#main" data-role="button" data-inline="true" data-icon="home" data-iconpos="notext" id="homeicon"></a>
+                <a href="#shop" data-role="button" data-inline="true" data-icon="shop" data-iconpos="notext" id="shopicon"></a>
+        </div><!-- header -->
+
+        <div data-role="main" class="ui-content">
+            <form  action="order.php" method="POST" name="hotchoco1" >
+            <div class="ui-grid-a">
+                <div class="ui-block-a">
+                    <img id="pic"src="img/hotchoco.png" width="120" height="120">
+                </div>
+           
+                <div class="ui-block-b"><!--상세보기 이미지 오른쪽 칸-->
+                    <input type="hidden" name="total_price" id="total_price" value="4000"/>
+                    <input type="hidden" name="product" id="hotchoco" value="핫 초코"/>
+                    <h1>핫 초코</h1>
+                    <input type="hidden" name="price" id="price" value="4000"/>
+                    <h3>가격 <span name="total" id="total" class="cart2">4000</span>원</h3>
+                    수량
+                <div data-role="ui-field-contain">
+                    <input type="text"  name="many" id="many" data-role="spinbox" data-mini="true" value="1" min="0" max="10"  runat="server"  onchange="calculate_total_price('hotchoco')" >       
+                </div>
+                </div>
+            </div>
+                    <select name ="size" id ="size" onchange="calculate_total_price('hotchoco')">
+                        <option value="Tall">Tall</option>
+                        <option value="Short">Short</option>
+                        <option value="Grande">Grande</option>
+                        <option value="Venti">Venti</option>
+                    </select><br> 
+
+            <div class="ui-grid-b">   
+                <div class="ui-block-a">
+                    <input type="submit" value="결제하기" >
+                </div>
+            </div>
+            </form>
+        </div>   
+    </section> 
+    <section id="orange" data-role="page" data-theme="a">    <!--오렌지 쥬스-->
+        <div  data-role="header">                              <!--헤더-->
+                <h1 id="head">IT Cafe</h1>
+                <a href="#main" data-role="button" data-inline="true" data-icon="home" data-iconpos="notext" id="homeicon"></a>
+                <a href="#shop" data-role="button" data-inline="true" data-icon="shop" data-iconpos="notext" id="shopicon"></a>
+        </div><!-- header -->
+
+        <div data-role="main" class="ui-content">
+            <form  action="order.php" method="POST" name="orange1" >
+            <div class="ui-grid-a">
+                <div class="ui-block-a">
+                    <img id="pic"src="img/orange.png" width="120" height="120">
+                </div>
+           
+                <div class="ui-block-b"><!--상세보기 이미지 오른쪽 칸-->
+                    <input type="hidden" name="total_price" id="total_price" value="4000"/>
+                    <input type="hidden" name="product" id="orange" value="오렌지 쥬스"/>
+                    <h1>오렌지 쥬스</h1>
+                    <input type="hidden" name="price" id="price" value="4000"/>
+                    <h3>가격 <span name="total" id="total" class="cart2">4000</span>원</h3>
+                    수량
+                <div data-role="ui-field-contain">
+                    <input type="text"  name="many" id="many" data-role="spinbox" data-mini="true" value="1" min="0" max="10"  runat="server"  onchange="calculate_total_price('orange')" >       
+                </div>
+                </div>
+            </div>
+                    <select name ="size" id ="size" onchange="calculate_total_price('orange')">
+                        <option value="Tall">Tall</option>
+                        <option value="Short">Short</option>
+                        <option value="Grande">Grande</option>
+                        <option value="Venti">Venti</option>
+                    </select><br> 
+
+            <div class="ui-grid-b">   
+                <div class="ui-block-a">
+                    <input type="submit" value="결제하기" >
+                </div>
+            </div>
+            </form>
+        </div>   
+    </section> 
+
 
 </body><!-- americano  -->
 </html>
