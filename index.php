@@ -13,7 +13,6 @@
     
     <script>
         function calculate_total_price(gbn){
-
             amount = $('#'+ gbn +' #many').val();
             price = $('#'+ gbn +' #price').val();
             big = $('#'+ gbn +' #size').val();
